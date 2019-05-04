@@ -8,11 +8,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -84,7 +82,7 @@ namespace Milestone.WebApi
                 options.DocInclusionPredicate((docName, description) => true);
                 //options.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "Milestone.WebApi.xml"));
                 options.DescribeAllEnumsAsStrings();
-                options.OperationFilter<HttpHeaderOperation>(); // 添加httpHeader参数
+                //options.OperationFilter<HttpHeaderOperation>(); // 添加httpHeader参数
             });
 
             #endregion

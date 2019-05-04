@@ -12,6 +12,7 @@ namespace Milestone.WebApi
     {
         public void Apply(Operation operation, OperationFilterContext context)
         {
+            
             if (operation.Parameters == null)
             {
                 operation.Parameters = new List<IParameter>();
@@ -24,6 +25,7 @@ namespace Milestone.WebApi
             if (isAuthorized == false) //提供action都没有权限特性标记，检查控制器有没有
             {
                 var controllerAttrs = context.ApiDescription.ControllerAttributes();
+
 
                 isAuthorized = controllerAttrs.Any(a => a.GetType() == typeof(AuthorizeAttribute));
             }
@@ -40,6 +42,8 @@ namespace Milestone.WebApi
                     Required = false
                 });
             }
+            
         }
+        
     }
 }
